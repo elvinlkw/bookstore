@@ -62,7 +62,7 @@ const Home = ({ books }: HomeProps) => {
   );
 };
 
-export function getServerSideProps() {
+export function getStaticProps() {
   return { props: { books: booksJSON } };
 }
 

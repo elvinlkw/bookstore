@@ -12,5 +12,19 @@
     "description": "Helps you discover the Canadian history",
     "price": 37.99,
     "category": "History"
+  },
+  {
+    "id": "3",
+    "title": "Knights of Lady Welch",
+    "description": "Story of lady welch and her 6 knights",
+    "price": 17.99,
+    "category": "Medieval"
+  },
+  {
+    "id": "4",
+    "title": "Lion's Den",
+    "description": "Documentary about journey of a lion and its pack",
+    "price": 23.99,
+    "category": "Jungle / Nature"
   }
 ]

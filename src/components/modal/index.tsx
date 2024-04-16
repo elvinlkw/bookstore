@@ -2,26 +2,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { StyledBackdrop, StyledModal } from "./styles";
+import { ModalProps } from "./types";
 
-const ModalComponent = ({
-  children,
-}: {
-  children: JSX.Element | JSX.Element[];
-}) => {
-  return (
-    <StyledBackdrop className="backdrop">
-      <StyledModal>{children}</StyledModal>
-    </StyledBackdrop>
-  );
-};
-
-const Modal = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
+const Modal = ({ children, onBackDropClick }: ModalProps) => {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => setMounted(true), []);
   return mounted
     ? ReactDOM.createPortal(
-        <ModalComponent>{children}</ModalComponent>,
+        <StyledBackdrop onClick={onBackDropClick} className="backdrop">
+          <StyledModal onClick={(e) => e.stopPropagation()}>
+            {children}
+          </StyledModal>
+        </StyledBackdrop>,
         document.getElementById("modal-root") as HTMLElement
       )
     : null;

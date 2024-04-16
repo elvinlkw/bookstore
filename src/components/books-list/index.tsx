@@ -2,12 +2,12 @@ import { RootState } from "@/store";
 import React, { MouseEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { StyledTable } from "./styles";
-import { MdDelete } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { ICON_SIZE } from "@/constants";
 import { Book } from "@/types";
 import { deleteBook } from "@/reducers/books";
 
-const BooksList = () => {
+const BooksList = ({ onRowClick }: { onRowClick: (book: Book) => void }) => {
   const dispatch = useDispatch();
   const books: Book[] = useSelector((state: RootState) => state.books);
 
@@ -34,13 +34,17 @@ const BooksList = () => {
         </thead>
         <tbody>
           {books.map((book) => (
-            <tr key={book.id} className="table-row">
+            <tr
+              onClick={() => onRowClick(book)}
+              key={book.id}
+              className="table-row"
+            >
               <td>{book.title}</td>
               <td>{book.price}</td>
               <td>{book.category}</td>
               <td>{book.description}</td>
               <td>
-                <MdDelete
+                <RiDeleteBin6Line
                   color="#f00"
                   className="delete-icon"
                   size={ICON_SIZE}

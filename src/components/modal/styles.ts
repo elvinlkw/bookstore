@@ -6,10 +6,9 @@ export const StyledBackdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
   background: rgba(0, 0, 0, 0.7);
   z-index: 10;
+  cursor: pointer;
 `;
 
 export const StyledModal = styled.div`
@@ -21,8 +20,7 @@ export const StyledModal = styled.div`
   transform: translate(-50%, -50%);
   z-index: 100;
   padding: 1.5rem;
-
-  .form-field {
-    margin: 0.5rem;
-  }
+  cursor: auto;
+  box-sizing: border-box;
+  border-radius: 8px;
 `;
